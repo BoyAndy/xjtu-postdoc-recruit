@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>西安交通大学医工交叉博士后招聘 · 脑—器交互重大脑疾病机制及精准神经调控团队</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #fafbfc;
+    color: #1f2937;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  a { color: #1e6cb6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== 顶部 Header ===== */
+  header.top {
+    background: linear-gradient(135deg, #07386c 0%, #052a55 100%);
+    color: #fff;
+    padding: 28px 0 36px;
+    border-bottom: 4px solid #c9923a;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  .top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b9d3ea;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .top-meta .org { letter-spacing: 1px; }
+  .top-title h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  .top-title .sub {
+    color: #f2deb5;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  .top-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .top-tag {
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 14px;
+    font-size: 13px;
+    color: #f2deb5;
+  }
+  .top-tag.alt { background: #c9923a; border-color: #c9923a; color: #fff; }
+
+  /* ===== 浮动导航 TOC ===== */
+  .toc {
+    position: fixed;
+    top: 50%;
+    right: 24px;
+    transform: translateY(-50%);
+    z-index: 999;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid #e5e9ee;
+    border-radius: 10px;
+    padding: 16px 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    max-height: 80vh;
+    overflow-y: auto;
+    width: 168px;
+  }
+  .toc::-webkit-scrollbar { width: 4px; }
+  .toc::-webkit-scrollbar-thumb { background: #c8d4e0; border-radius: 2px; }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #c9923a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 12px 8px;
+    border-bottom: 1px dashed #e1e7ee;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .toc ul { list-style: none; padding: 0; margin: 0; }
+  .toc li { margin: 0; }
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    color: #5a6a7a;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  .toc a:hover { background: #f7f9fc; color: #07386c; }
+  .toc a .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c8d4e0;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .toc a.active { background: #fff8eb; color: #07386c; font-weight: 700; }
+  .toc a.active .dot { background: #c9923a; transform: scale(1.5); box-shadow: 0 0 0 3px rgba(201, 146, 58, 0.2); }
+  .toc .progress {
+    height: 3px;
+    background: #e5e9ee;
+    border-radius: 2px;
+    margin: 10px 12px 0;
+    overflow: hidden;
+  }
+  .toc .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #c9923a 0%, #07386c 100%);
+    width: 0%;
+    transition: width 0.2s;
+  }
+  .toc .progress-text {
+    text-align: center;
+    font-size: 11px;
+    color: #8a9aaa;
+    margin-top: 4px;
+    padding: 0 12px;
+  }
+
+  /* ===== 返回顶部 ===== */
+  .back-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 44px;
+    height: 44px;
+    background: #07386c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(7,56,108,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+  .back-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .back-top:hover { background: #c9923a; transform: translateY(-3px); }
+  .back-top svg { width: 20px; height: 20px; }
+
+  /* ===== 章节序号徽章 ===== */
+  .section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #07386c;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 12px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .section-num.gold { background: #c9923a; }
+
+  /* ===== 主内容 ===== */
+  main { padding: 36px 0 80px; }
+  .doc {
+    background: #fff;
+    border: 1px solid #e5e9ee;
+    border-radius: 8px;
+    padding: 44px 52px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+
+  /* ===== 段落 ===== */
+  h2.section {
+    font-size: 22px;
+    color: #07386c;
+    margin: 50px 0 14px;
+    padding: 10px 0 10px 0;
+    border-left: 5px solid #c9923a;
+    background: linear-gradient(to right, #f7f3eb 0%, transparent 60%);
+    padding-left: 18px;
+    font-weight: 700;
+    scroll-margin-top: 24px;
+    display: flex;
+    align-items: center;
+  }
+  h2.section:first-of-type { margin-top: 0; }
+  h3.sub {
+    font-size: 17px;
+    color: #07386c;
+    margin: 22px 0 10px;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 16px;
+    color: #1e6cb6;
+    margin: 16px 0 6px;
+    font-weight: 600;
+  }
+  p { margin-bottom: 10px; color: #2c3e50; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 4px; }
+  .lead {
+    background: #f7f9fc;
+    border-left: 3px solid #1e6cb6;
+    padding: 14px 18px;
+    margin: 14px 0 24px;
+    color: #3a4a5e;
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* ===== 团队概览表格 ===== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 20px 0;
+  }
+  .team-card {
+    background: #f7f9fc;
+    border: 1px solid #e1e7ee;
+    border-radius: 8px;
+    padding: 18px 22px;
+  }
+  .team-card .label {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #07386c;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .team-card h3 {
+    margin-top: 4px;
+    color: #07386c;
+    font-size: 18px;
+    border-bottom: 1px dashed #c8d4e0;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+  .team-card p { margin-bottom: 0; font-size: 14px; }
+
+  /* ===== 方向卡片 ===== */
+  .dir-list { margin: 14px 0; }
+  .dir-item {
+    background: #fff;
+    border: 1px solid #e5e9ee;
+    border-left: 4px solid #1e6cb6;
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+  }
+  .dir-item:hover { border-left-color: #c9923a; background: #fbfbfd; }
+  .dir-item .num {
+    display: inline-block;
+    background: #07386c;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .dir-item .title-text {
+    font-weight: 700;
+    color: #07386c;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  .dir-item p { margin-top: 8px; margin-bottom: 0; color: #4a5a6d; font-size: 14px; }
+
+  /* ===== 导师卡片 ===== */
+  .mentor {
+    background: #fff;
+    border: 1px solid #e5e9ee;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .mentor-avatar {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 3px solid #07386c;
+    overflow: hidden;
+    background: #f0f3f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mentor-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mentor-body { flex: 1; min-width: 0; }
+  .mentor-body .name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #07386c;
+    margin-bottom: 4px;
+  }
+  .mentor-body .title-line {
+    color: #c9923a;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .mentor-body .unit-line {
+    color: #5a6a7a;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .mentor-body .tags { margin-bottom: 12px; }
+  .mentor-body .tag {
+    display: inline-block;
+    background: #fff5e0;
+    color: #8b5a13;
+    border: 1px solid #e8d3a0;
+    border-radius: 12px;
+    padding: 3px 10px;
+    font-size: 12px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+  .mentor-body .keywords {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #d0dae5;
+  }
+  .mentor-body .keywords strong {
+    display: block;
+    color: #07386c;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .mentor-body .keywords span {
+    display: inline-block;
+    background: #eef2f7;
+    color: #1e6cb6;
+    border-radius: 10px;
+    padding: 2px 10px;
+    font-size: 12px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+
+  /* ===== 待遇卡片 ===== */
+  .salary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .salary-card {
+    background: linear-gradient(135deg, #07386c 0%, #052a55 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 22px 26px;
+  }
+  .salary-card.b {
+    background: linear-gradient(135deg, #4a6280 0%, #2c4358 100%);
+  }
+  .salary-card .tier {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #f2deb5;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .salary-card .amount {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .salary-card .amount .unit {
+    font-size: 14px;
+    color: #c5d6e8;
+    margin-left: 6px;
+    font-weight: 500;
+  }
+  .salary-card .desc {
+    color: #d6e1ee;
+    font-size: 13px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .salary-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .salary-card li {
+    color: #d6e1ee;
+    font-size: 13px;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .salary-card li::before {
+    content: "▸";
+    color: #c9923a;
+    position: absolute;
+    left: 0;
+  }
+
+  /* ===== 福利图标 ===== */
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 18px 0 24px;
+  }
+  .benefit {
+    background: #f7f9fc;
+    border: 1px solid #e1e7ee;
+    border-radius: 6px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .benefit .icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 8px;
+    background: #07386c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .benefit .icon svg { width: 18px; height: 18px; color: #fff; }
+  .benefit .name {
+    font-weight: 600;
+    color: #07386c;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .benefit .desc {
+    color: #5a6a7a;
+    font-size: 12px;
+  }
+
+  /* ===== 联系方式 ===== */
+  .contact {
+    background: linear-gradient(135deg, #fff8eb 0%, #f7eed5 100%);
+    border: 1px solid #e8d3a0;
+    border-radius: 8px;
+    padding: 22px 28px;
+    margin: 18px 0;
+  }
+  .contact .label {
+    color: #8b5a13;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .contact .email {
+    font-size: 18px;
+    font-weight: 700;
+    color: #07386c;
+  }
+  .contact .tip {
+    color: #6b6b6b;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  /* ===== 关键指标 (4个数字) ===== */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 18px 0 24px;
+  }
+  .stat {
+    background: linear-gradient(135deg, #07386c 0%, #1e6cb6 100%);
+    color: #fff;
+    border-radius: 8px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat .num {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #f2deb5;
+  }
+  .stat .num-label {
+    font-size: 12px;
+    color: #c5d6e8;
+    margin-top: 2px;
+  }
+  .stat .stat-label {
+    font-size: 13px;
+    margin-top: 6px;
+    color: #d6e1ee;
+  }
+
+  /* ===== 页脚 ===== */
+  footer.bottom {
+    background: #07386c;
+    color: #c5d6e8;
+    padding: 32px 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer.bottom strong { color: #f2deb5; }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 1180px) {
+    .toc { right: 12px; width: 150px; }
+  }
+  @media (max-width: 980px) {
+    .toc { display: none; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .container { padding: 0 18px; }
+    .doc { padding: 24px 22px; }
+    h2.section { font-size: 19px; }
+    .top-title h1 { font-size: 22px; }
+    .team-grid, .salary-grid, .mentor { grid-template-columns: 1fr; }
+    .mentor { flex-direction: column; align-items: center; text-align: center; }
+    .benefits { grid-template-columns: repeat(2, 1fr); }
+    .top-meta { flex-direction: column; gap: 4px; align-items: flex-start; }
+    .back-top { right: 16px; bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="top">
+  <div class="container">
+    <div class="top-meta">
+      <span class="org">西安交通大学 · XJTU</span>
+      <span>发布日期：长期有效 · 招满即止</span>
+    </div>
+    <div class="top-title">
+      <h1>西安交通大学医工交叉博士后招聘</h1>
+      <p class="sub">脑—器交互重大脑疾病机制及精准神经调控团队</p>
+      <p style="color:#d6e1ee;font-size:15px;">汇聚临床与工程优势 · 寻找下一位脑科学同行者</p>
+    </div>
+    <div class="top-tags">
+      <span class="top-tag alt">计划招聘 ≤ 3 名</span>
+      <span class="top-tag">医学交叉博士后</span>
+      <span class="top-tag">A 类 25 万 / B 类 16 万</span>
+      <span class="top-tag">双导师联合培养</span>
+      <span class="top-tag">西交一附院 × 西交生命学院</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 浮动导航 TOC ===== -->
+<nav class="toc" id="toc">
+  <div class="toc-title">📑 目录导航</div>
+  <ul>
+    <li><a href="#sec-overview" data-target="sec-overview"><span class="dot"></span>团队总览</a></li>
+    <li><a href="#sec-direction" data-target="sec-direction"><span class="dot"></span>研究方向</a></li>
+    <li><a href="#sec-requirement" data-target="sec-requirement"><span class="dot"></span>应聘条件</a></li>
+    <li><a href="#sec-salary" data-target="sec-salary"><span class="dot"></span>薪酬待遇</a></li>
+    <li><a href="#sec-career" data-target="sec-career"><span class="dot"></span>职业发展</a></li>
+    <li><a href="#sec-mentor" data-target="sec-mentor"><span class="dot"></span>双导师团队</a></li>
+    <li><a href="#sec-apply" data-target="sec-apply"><span class="dot"></span>申请方式</a></li>
+    <li><a href="#sec-cycle" data-target="sec-cycle"><span class="dot"></span>招聘周期</a></li>
+  </ul>
+  <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-text"><span id="progressText">0%</span> · 已读</div>
+</nav>
+
+<!-- ===== 返回顶部按钮 ===== -->
+<button class="back-top" id="backTop" aria-label="返回顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<main>
+<div class="container">
+<div class="doc">
+
+<!-- ===== 团队总览 ===== -->
+<h2 class="section" id="sec-overview">
+  <span class="section-num">0</span>团队总览
+</h2>
+<p class="lead">
+本招聘由<strong>西安交通大学第一附属医院</strong>与<strong>西安交通大学生命科学与技术学院</strong>联合设立，依托双方在临床医学与生物医学工程领域的优势资源，面向人工智能、影像医学与核医学、生物医学工程、计算机科学、神经工程等学科背景的优秀青年学者，招收医学交叉博士后研究人员。
+</p>
+
+<!-- 关键指标 -->
+<div class="stats">
+  <div class="stat">
+    <div class="num" data-target="3">0</div>
+    <div class="num-label">人</div>
+    <div class="stat-label">计划招聘</div>
+  </div>
+  <div class="stat">
+    <div class="num" data-target="25">0</div>
+    <div class="num-label">万元/年</div>
+    <div class="stat-label">A 类最高年薪</div>
+  </div>
+  <div class="stat">
+    <div class="num" data-target="35">0</div>
+    <div class="num-label">周岁</div>
+    <div class="stat-label">年龄上限</div>
+  </div>
+  <div class="stat">
+    <div class="num" data-target="4">0</div>
+    <div class="num-label">类福利</div>
+    <div class="stat-label">五险一金+公寓+医疗+子女入学</div>
+  </div>
+</div>
+
+<div class="team-grid">
+  <div class="team-card">
+    <span class="label">临床平台</span>
+    <h3>西安交通大学第一附属医院</h3>
+    <p>国家卫生健康委委属委管医院、国家首批三级甲等医院，全国首批暨陕西省首家"辅导类"国家医学中心创建单位。医院编制床位 2500 余张，年门诊量近 300 万人次，年出院患者 14 万余人次，承担国家医学中心、国家区域医疗中心建设任务。医院拥有国家临床医学研究中心、国家中医药管理局重点研究室、陕西省重点实验室等高水平科研平台，医学影像与核医学、神经内外科、急诊与重症医学等学科处于国内先进水平。</p>
+  </div>
+  <div class="team-card">
+    <span class="label">基础平台</span>
+    <h3>西安交通大学生命科学与技术学院</h3>
+    <p>西安交通大学的传统优势学院之一，前身为 1985 年创建的生物医学工程与仪器系。学院设有生物医学工程、生物技术、临床医学、基础医学等学科，拥有生物医学工程国家一级重点学科，建有国家生物医学工程人才培养基地、陕西省生物医学工程重点实验室、陕西省精准医学与健康工程研究中心等多个省部级及以上科研平台，在脑科学与神经工程、医学影像智能分析、生物力学与康复工程等方向具有鲜明特色，是医工交叉人才培养与科学研究的重要基地。</p>
+  </div>
+</div>
+
+<!-- ===== 研究方向 ===== -->
+<h2 class="section" id="sec-direction">
+  <span class="section-num">1</span>博士后研究方向
+</h2>
+<p class="lead">团队主要围绕"脑—器交互重大脑疾病机制及精准神经调控"开展医工交叉研究，本轮计划招聘博士后不超过 <strong>3 名</strong>，重点支持以下方向：</p>
+
+<div class="dir-list">
+  <div class="dir-item">
+    <span class="num">1</span><span class="title-text">医学影像与人工智能数据挖掘</span>
+    <p>围绕多模态医学图像（MRI、PET、EEG）与深度学习、多模态融合、医学大模型与影像生物标志物的融合分析，构建面向重大脑疾病的智能辅助诊断、预后预测与个体化干预决策支持系统。</p>
+  </div>
+  <div class="dir-item">
+    <span class="num">2</span><span class="title-text">重大脑疾病与脑—器交互机制</span>
+    <p>聚焦创伤性脑损伤、神经退行性疾病、精神类疾病等重大脑疾病，解析脑结构与功能重塑、脑网络异常及脑—器交互机制，明确影像表型与认知功能、疾病转归及个体化干预之间的关系。</p>
+  </div>
+  <div class="dir-item">
+    <span class="num">3</span><span class="title-text">精准神经调控</span>
+    <p>通过脑机接口、神经调控技术，结合多模态影像与人工智能算法，开展个体化靶点识别与精准调控方案研究，推动脑疾病干预从"经验治疗"走向"精准治疗"。</p>
+  </div>
+</div>
+
+<!-- ===== 招聘要求 ===== -->
+<h2 class="section" id="sec-requirement">
+  <span class="section-num">2</span>应聘条件
+</h2>
+<ol>
+  <li><strong>基本素质：</strong>品学兼优、身心健康、科研执行力强、有责任心、具有良好的团队合作精神，无科研诚信负面记录。</li>
+  <li><strong>专业要求：</strong>已获得（或即将获得）人工智能、影像医学与核医学、生物医学工程、计算机、神经工程等相关学科的博士学位；获得博士学位不超过 <strong>3 年</strong>，年龄一般不超过 <strong>35 周岁</strong>，优秀者可适当放宽。</li>
+  <li><strong>能力要求：</strong>具有独立的课题设计能力和扎实的实验/算法操作能力，能够在合作导师指导下独立开展原创性研究工作；具备良好的科研创新潜力、英文阅读与论文写作能力。</li>
+  <li><strong>成果要求：</strong>以第一作者身份已发表过一篇及以上 SCI 论文，具有较强的学术发展潜力。</li>
+  <li><strong>科研态度：</strong>恪守科研诚信与学术道德规范，具有团队协作精神和进取意识，全职投入博士后研究工作。</li>
+</ol>
+
+<!-- ===== 薪酬待遇 ===== -->
+<h2 class="section" id="sec-salary">
+  <span class="section-num">3</span>薪酬待遇
+</h2>
+<p>医学交叉博士后分为 <strong>A 类</strong>、<strong>B 类</strong>两类，均实行年薪制，并按学校相关规定评定：</p>
+
+<div class="salary-grid">
+  <div class="salary-card">
+    <span class="tier">A 类 · 推荐</span>
+    <div class="amount">25<span class="unit">万元 / 年</span></div>
+    <p class="desc">前两年按 20 万元/年发放，中期考核合格及以上者后两年薪酬提高至 25 万元/年，并补发前两年薪酬共计 10 万元。</p>
+    <ul>
+      <li>中期考核不合格者将转为 B 类管理</li>
+      <li>基本工资之外的绩效奖励根据科研贡献发放</li>
+      <li>发表论文可参照一附院奖励标准获得额外奖励</li>
+    </ul>
+  </div>
+  <div class="salary-card b">
+    <span class="tier">B 类</span>
+    <div class="amount">16<span class="unit">万元 / 年</span></div>
+    <p class="desc">按 16 万元/年发放。中期考核优秀者可申报 A 类，经教师聘任委员会审核、专班审议入选后，薪酬按 25 万元/年执行。</p>
+    <ul>
+      <li>享有同样的社保、公积金与人才公寓等福利</li>
+      <li>子女享受西安交大附属学校入学政策</li>
+      <li>课题组根据论文与基金提供可观绩效奖励</li>
+    </ul>
+  </div>
+</div>
+
+<h3 class="sub">其他福利与保障</h3>
+<ul>
+  <li>缴纳<strong>社会保险和住房公积金</strong>，享受学校与医院的医疗保障；</li>
+  <li>提供<strong>人才公寓住房</strong>，协助解决青年学者过渡期居住问题；</li>
+  <li>享受<strong>学校子女入学政策</strong>（西安交大附属幼儿园、小学、中学在全市排名均为前五）；</li>
+  <li>课题组根据研究贡献、论文发表、基金项目等情况给予<strong>可观的绩效奖励</strong>，发表论文可参照一附院奖励标准获得额外奖励；</li>
+  <li>所有相关福利待遇按照<strong>学校和医院最新规定政策</strong>执行。</li>
+</ul>
+
+<div class="benefits">
+  <div class="benefit">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <div class="name">人才公寓</div>
+    <div class="desc">可租住校内人才公寓</div>
+  </div>
+  <div class="benefit">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+    <div class="name">五险一金</div>
+    <div class="desc">按国家规定缴纳</div>
+  </div>
+  <div class="benefit">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+    <div class="name">子女入学</div>
+    <div class="desc">交大附属学校全市前五</div>
+  </div>
+  <div class="benefit">
+    <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="name">医疗保障</div>
+    <div class="desc">学校与医院医保</div>
+  </div>
+</div>
+
+<p style="font-size:13px;color:#6b6b6b;margin-top:8px;">
+※ 详细公告请参见：<a href="http://hr.xjtu.edu.cn/info/1018/8515.htm">《西安交通大学医学交叉博士后招聘公告》</a>
+</p>
+
+<!-- ===== 职业发展 ===== -->
+<h2 class="section" id="sec-career">
+  <span class="section-num">4</span>职业发展
+</h2>
+<ol>
+  <li>聘期考核合格且满足学校人才计划条件或高级专业技术职务岗位晋升条件者，可申请学校相应岗位；满足附属医院晋升条件者，也可申请晋升附属医院相应岗位，晋升后人事关系转入附属医院；也可出站后申请评定副高级专业技术职务资格。</li>
+  <li>聘期内<strong>提前完成合同任务</strong>且满足学校人才计划条件、高级专业技术职务岗位晋升条件或附属医院晋升条件者，可随时申请相应岗位。</li>
+  <li>团队为博士后提供跨学院、跨医院、跨学科的联合指导，支持形成独立研究方向与可持续发展的成果链；打通"临床问题—多模态数据—机制解析—高水平论文—国家项目—青年人才"的成长路径。</li>
+</ol>
+
+<!-- ===== 导师团队 ===== -->
+<h2 class="section" id="sec-mentor">
+  <span class="section-num">5</span>双导师联合培养：临床需求牵引 × 工程技术赋能
+</h2>
+<p style="color:#4a5a6d;">围绕重大脑疾病，贯通机制解析、影像标志物与精准干预。</p>
+
+<!-- 王卓楠 -->
+<div class="mentor">
+  <div class="mentor-avatar">
+    <img src="wang.png" alt="王卓楠 副研究员" onerror="this.style.display='none';this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#5a6a7a\' stroke-width=\'1.5\' width=\'50\' height=\'50\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'">
+  </div>
+  <div class="mentor-body">
+    <div class="name">王卓楠</div>
+    <div class="title-line">副研究员 · 博士生导师</div>
+    <div class="unit-line">西安交通大学第一附属医院</div>
+    <div class="tags">
+      <span class="tag">国家重点研发计划首席科学家</span>
+      <span class="tag">陕西省"优青"</span>
+    </div>
+    <p>长期从事创伤性脑损伤及重大脑疾病的多模态定量影像、脑网络机制、人工智能分析与精准神经调控研究，重点关注影像表型与认知功能、疾病转归及个体化干预之间的关系。</p>
+    <p style="font-size:14px;color:#4a5a6d;"><strong style="color:#07386c;">学术任职：</strong>陕西省中西医结合学会核医学分会常务委员；中华医学会核医学分会大数据与人工智能工委会委员。</p>
+    <div class="keywords">
+      <strong>研究关键词</strong>
+      <span>创伤性脑损伤</span>
+      <span>多模态影像</span>
+      <span>脑网络</span>
+      <span>人工智能</span>
+      <span>精准神经调控</span>
+    </div>
+  </div>
+</div>
+
+<!-- 白丽君 -->
+<div class="mentor">
+  <div class="mentor-avatar">
+    <img src="bai.png" alt="白丽君 教授" onerror="this.style.display='none';this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#5a6a7a\' stroke-width=\'1.5\' width=\'50\' height=\'50\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'">
+  </div>
+  <div class="mentor-body">
+    <div class="name">白丽君</div>
+    <div class="title-line">教授 · 博士生导师</div>
+    <div class="unit-line">西安交通大学生命科学与技术学院</div>
+    <div class="tags">
+      <span class="tag">陕西省"杰青"</span>
+      <span class="tag">国家重点研发计划课题负责人</span>
+    </div>
+    <p>长期致力于智能影像诊疗技术及装备研发，主持国家重点研发计划课题 2 项、国家自然科学基金面上项目 5 项，国防基础加强技术领域基金、军队后勤生安专项课题等多项国家级与省部级项目。</p>
+    <p>代表性成果发表于 <em>Radiology</em>、<em>Advanced Science</em>、<em>JNNP</em>、<em>BJPsy</em>、<em>Genes &amp; Diseases</em>、<em>NeuroImage</em> 等国际高水平期刊；学术影响力方面，H-index 37，SCI 总他引 3959 次，获陕西科学技术一等奖等科研奖励 6 项。</p>
+    <p style="font-size:14px;color:#4a5a6d;"><strong style="color:#07386c;">主要任职：</strong>中国针灸学会针灸医学影像专业委员会副主委；中国针灸学会脑科学产学研创新联盟副理事长；世界华人神经创伤学会（总部位于美国）执行委员会委员。</p>
+  </div>
+</div>
+
+<h3 class="sub">联合优势</h3>
+<p>为博士后提供<strong>跨学院、跨医院、跨学科</strong>的联合指导，由医学与工学双导师团队共同指导课题设计与论文发表，确保课题立足生物医学应用、产出高水平研究成果。团队项目经费充足并得到学校、医院的大力支持，受多项国家自然科学基金、国家重点研发计划等项目资助。</p>
+
+<!-- ===== 申请方式 ===== -->
+<h2 class="section" id="sec-apply">
+  <span class="section-num">6</span>申请方式
+</h2>
+<p>本招聘<strong>长期有效</strong>，学校申报系统随时可提交申请。来信请说明应聘岗位并附个人简历，应聘材料将予以保密。</p>
+
+<div class="contact">
+  <div class="label">联系邮箱 · 联系人：王卓楠</div>
+  <div class="email">
+    <a href="mailto:wangzhuonan@xjtu.edu.cn?subject=博士后申请 + 姓名 + 毕业单位 + 研究方向">wangzhuonan@xjtu.edu.cn</a>
+  </div>
+  <p class="tip">邮件主题建议格式：<strong style="color:#8b5a13;">博士后申请 + 姓名 + 毕业单位 + 研究方向</strong></p>
+</div>
+
+<h3 class="sub">申请材料</h3>
+<ul>
+  <li>个人简历（含教育背景、科研经历、发表论文清单等）</li>
+  <li>研究工作简介（500–1000 字）</li>
+  <li>代表性成果（论文 PDF、专利证书等）</li>
+  <li>博士后研究计划（2000–3000 字）</li>
+</ul>
+
+<!-- ===== 招聘周期 ===== -->
+<h2 class="section" id="sec-cycle">
+  <span class="section-num">7</span>招聘周期
+</h2>
+<p>学校申报系统随时可以提交申请。材料初审通过后，将由团队与合作导师共同组织面试与考核，欢迎海内外优秀青年学者随时联系咨询。</p>
+
+<p style="text-align:center;margin-top:36px;color:#07386c;font-weight:700;font-size:18px;">
+期待优秀的您加入我们，共同推动脑疾病诊疗的临床与转化研究！
+</p>
+
+</div><!-- /doc -->
+</div><!-- /container -->
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="bottom">
+  <div class="container">
+    <strong>西安交通大学第一附属医院</strong> · <strong>西安交通大学生命科学与技术学院</strong><br>
+    脑—器交互重大脑疾病机制及精准神经调控团队<br>
+    <span style="font-size:12px;color:#8aa3bf;">© 2026 医工交叉博士后招聘计划 · 本招聘长期有效，招满即止</span>
+  </div>
+</footer>
+
+<script>
+  // ===== 1. 浮动导航 TOC 高亮联动 =====
+  const tocLinks = document.querySelectorAll('.toc a[data-target]');
+  const sections = [];
+  tocLinks.forEach(link => {
+    const id = link.getAttribute('data-target');
+    const sec = document.getElementById(id);
+    if (sec) sections.push({ id, sec, link });
+  });
+
+  function updateActiveSection() {
+    const scrollY = window.scrollY + window.innerHeight / 3;
+    let active = sections[0];
+    for (const item of sections) {
+      if (item.sec.offsetTop <= scrollY) active = item;
+    }
+    tocLinks.forEach(l => l.classList.remove('active'));
+    if (active) active.link.classList.add('active');
+  }
+
+  // ===== 2. 阅读进度条 =====
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  function updateProgress() {
+    const doc = document.documentElement;
+    const total = doc.scrollHeight - window.innerHeight;
+    const ratio = total > 0 ? Math.min(100, Math.max(0, (window.scrollY / total) * 100)) : 0;
+    progressBar.style.width = ratio.toFixed(1) + '%';
+    progressText.textContent = ratio.toFixed(0) + '%';
+  }
+
+  // ===== 3. 返回顶部按钮 =====
+  const backTop = document.getElementById('backTop');
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // ===== 4. 数字滚动动画 (stats) =====
+  const stats = document.querySelectorAll('.stat .num');
+  const animated = new WeakSet();
+  function animateStat(el) {
+    if (animated.has(el)) return;
+    animated.add(el);
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * ease).toString();
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toString();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ===== 5. 节流的滚动监听 =====
+  let rafId = null;
+  function onScroll() {
+    if (rafId) return;
+    rafId = requestAnimationFrame(() => {
+      updateActiveSection();
+      updateProgress();
+      // 显示/隐藏返回顶部
+      if (window.scrollY > 400) backTop.classList.add('show');
+      else backTop.classList.remove('show');
+      rafId = null;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // ===== 6. IntersectionObserver 触发数字动画 =====
+  const statObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateStat(entry.target);
+        statObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  stats.forEach(s => statObs.observe(s));
+
+  // ===== 7. 初始化 =====
+  updateActiveSection();
+  updateProgress();
+</script>
+
+</body>
+</html>
