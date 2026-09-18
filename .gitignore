@@ -1,0 +1,4 @@
+﻿# Avoid noisy files
+~$*
+*.pptx
+*.pdf
