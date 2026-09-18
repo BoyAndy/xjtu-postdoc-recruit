@@ -390,7 +390,16 @@
   }
   footer.bottom strong { color: #f2deb5; }
 
-  /* ===== 响应式（已禁用：手机与电脑保持一致） ===== */
+  /* ===== 响应式 ===== */
+  @media (max-width: 768px) {
+    .doc { padding: 24px 22px; }
+    h2.section { font-size: 19px; }
+    .top-title h1 { font-size: 22px; }
+    .team-grid, .salary-grid, .mentor { grid-template-columns: 1fr; }
+    .mentor { flex-direction: column; align-items: center; text-align: center; }
+    .benefits { grid-template-columns: repeat(2, 1fr); }
+    .top-meta { flex-direction: column; gap: 4px; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
